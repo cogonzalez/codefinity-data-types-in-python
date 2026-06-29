@@ -21,6 +21,22 @@ for i in range(0,100):
     if i % 3 == 0:
         print(i)
 
-print(round(2.5), round(3.5))   # 2  4
-print(round(2.675, 2))          # 2.67  (binary float nuance)
+print("2.675 gets rounded to:",round(2.675,2), "Not 2.68 b/c actual stored value is 2.67499999999")          
+# 2.67  (binary float nuance)
 
+# When the value you’re rounding is exactly halfway between 
+# two possible results, Python will pick the one with an 
+# even least significant digit.
+# “Ties to even” rounding (a.k.a. banker's rounding)
+print("2.5 gets rounded down to: ",round(2.5),"is even") # 2   ← 2 is even
+print("4.5 gets rounded down to: ",round(4.5),"is even") # 4   ← 4 is even
+print("6.5 gets rounded down to: ",round(6.5),"is even") # 6   ← 4 is even
+print("1.5 gets rounded up to: ",round(1.5),"is even")   # 2   ← 2 is even
+print("3.5 gets rounded up to: ",round(3.5),"is even")   # 4   ← 4 is even
+print("5.5 gets rounded up to: ",round(5.5),"is even")   # 6   ← 6 is even
+
+import math
+print(math.floor(2.9), math.ceil(2.1), math.trunc(-2.9))  # 2  3  -2
+print(math.sqrt(9))                                       # 3.0
+print(math.pi, math.e)                                    # 3.14159...  2.71828...
+print(math.isfinite(1.0), math.isfinite(float('inf')))    # True False
