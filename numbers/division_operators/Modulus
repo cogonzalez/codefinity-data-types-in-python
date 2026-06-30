@@ -1,0 +1,10 @@
+remaining_budget = 38000 % 7000
+# Calculates the remainder after division
+print(remaining_budget)  # Output: 3000
+
+for n in range(0,100):
+    remainder = n % 2
+    if remainder % 2 == 0:  #Check if the remainder is 0
+        print(f"{n} is Even because remainder is: {remainder}")
+    else:
+        print(f"{n} is Odd because remainder is: {remainder}")
