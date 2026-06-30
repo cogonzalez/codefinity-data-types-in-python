@@ -5,7 +5,7 @@ minutes = 60 % 7
 # Set the number of remaining transactions
 remaining_tasks = 10 - completed
 # Set the total time needed to complete all transactions
-required_time = remaining_tasks * 7 - minutes
+required_time = 10*7
 
 # Print the results
 print("The number of remaining transactions is", remaining_tasks)
