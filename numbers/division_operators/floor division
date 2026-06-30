@@ -1,0 +1,10 @@
+departments = 38000 // 7000
+print(departments)  # Output: 5
+
+import random
+
+for index in range(1,10):
+    total_minutes = random.randint(65,565)
+    hours = total_minutes // 60    # whole number of quotient
+    minutes = total_minutes % 60   # remainder of quotient
+    print(f"A total of {total_minutes}m = {hours}h {minutes}m")
