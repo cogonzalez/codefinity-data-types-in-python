@@ -9,30 +9,34 @@ max_seat_number = 150
 age = int(age_str.strip()) 
 # strip age_str just in case there are spaces, 
 # string must rep an integer
-print(f"age_str is a string: {age_str}")
-print(f"age is an int: {age}")
+# print(f"age is an int: {age}", type(age))
 
 # 2) ID possession as Boolean from text
-#has_id = ___(___.___() ___ "yes")
+has_id = has_id_str.strip().casefold() == "yes"
+# print(f"has id: {has_id}")
 
 # 3) Parse ticket parts by fixed positions
-#tier = ticket_code[___:___]             # "VIP"
-#seat_number_str = ticket_code[___:___]  # "023"
-#zone = ticket_code[___]                 # "A"
+tier = ticket_code[:3]              # "VIP"
+seat_number_str = ticket_code[4:7]  # "023"
+zone = ticket_code[-1]              # "A"
+# print(f"tier:{tier} {type(tier)}, seat#:{seat_number_str} {type(seat_number_str)}, zone:{zone} {type(zone)}")
 
 # 4) Seat number as int
-#seat_number = ___(seat_number_str)
+seat_number = int(seat_number_str)
+# print(f"seat #:{seat_number},", type(seat_number))
 
 # 5) Rules
-#is_adult = age ___ adult_age
-#can_enter = has_id ___ is_adult
-#vip_perk = tier ___ "VIP"
-#member_fastlane = is_member ___ can_enter
-#seat_ok = ___ ___ seat_number ___ ___
-#entry_granted = can_enter ___ seat_ok
+is_adult = age >= adult_age
+# print(f"is adult: {is_adult}")
+can_enter = has_id and is_adult
+# print(f"can enter: {can_enter}")
+vip_perk = tier == "VIP"
+member_fastlane = is_member and can_enter
+seat_ok = 1 <= seat_number <= max_seat_number
+entry_granted = can_enter and seat_ok
 
 # 6) Summary line
-#summary = f"{tier}-{seat_number_str}-{zone} | age={age} | enter={entry_granted} | vip={vip_perk} | fastlane={member_fastlane}"
+summary = f"{tier}-{seat_number_str}-{zone} | age={age} | enter={entry_granted} | vip={vip_perk} | fastlane={member_fastlane}"
 
-#print(age, has_id, tier, seat_number_str, zone, seat_number, is_adult, can_enter, vip_perk, member_fastlane, seat_ok, entry_granted, sep=" | ")
-#print(summary)
+print(age, has_id, tier, seat_number_str, zone, seat_number, is_adult, can_enter, vip_perk, member_fastlane, seat_ok, entry_granted, sep=" | ")
+print(summary)
